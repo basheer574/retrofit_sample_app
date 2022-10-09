@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import '../data/model/user.dart';
 
 class ListWidget extends StatelessWidget {
-  ListWidget({Key? key,required this.users}) : super(key: key);
+  const ListWidget({Key? key,required this.users}) : super(key: key);
 
-  List<User> users;
+  final List<User> users;
 
   @override
   Widget build(BuildContext context) {
@@ -14,8 +14,9 @@ class ListWidget extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       itemBuilder: (context,index){
         return Card(
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
           color: Colors.greenAccent,
-          elevation: 3,
+          elevation: 2.5,
           child: ListTile(
             title: Text(users[index].title!,style: const TextStyle(fontWeight: FontWeight.w400,color: Colors.black)),
             subtitle: Text(users[index].completed!.toString(),style: const TextStyle(fontWeight: FontWeight.w600,color: Colors.black),
